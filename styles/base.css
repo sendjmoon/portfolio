@@ -1,18 +1,27 @@
 body {
-  background-color: white;
-  color: black;
+  background-color: #191F1C;
+  color: #CAC7BE;
   font-family: verdana;
+  width: 100%;
+}
+
+main {
   width: 90%;
-  margin: 0 auto;
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 a {
   margin: 0 auto;
   text-decoration: none;
   color: salmon;
+  opacity: 1.0;
 }
 
 a:visited {
   margin: 0 auto;
   color: salmon;
+  opacity: 1.0;
 }

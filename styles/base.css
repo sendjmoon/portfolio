@@ -1,0 +1,18 @@
+body {
+  background-color: white;
+  color: black;
+  font-family: verdana;
+  width: 90%;
+  margin: 0 auto;
+}
+
+a {
+  margin: 0 auto;
+  text-decoration: none;
+  color: salmon;
+}
+
+a:visited {
+  margin: 0 auto;
+  color: salmon;
+}

@@ -57,6 +57,10 @@
   text-align: center;
 }
 
+#about {
+  text-align: center;
+}
+
 .template {
   display: none;
   text-align: center;
@@ -73,6 +77,12 @@
 
 .article-body p {
   text-align: left;
+}
+
+.self-image {
+  float: none;
+  min-width: 200px;
+  width: 10%;
 }
 
 @media (min-width: 640px) {
@@ -92,6 +102,9 @@
     padding: 10px;
   }
   .article-image img {
+    float: left;
+  }
+  .self-image {
     float: left;
   }
 }

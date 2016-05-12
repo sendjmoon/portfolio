@@ -13,15 +13,15 @@
       <div class="hamburger-icon"></div>
       <div class="hamburger-menu">
         <ul class="hamburger-ul">
-          <li class="hamburger-li"><a href="#" class="nav-item"> About </a></li>
-          <li class="hamburger-li"><a href="#" class="nav-item"> Projects </a></li>
+          <li class="hamburger-li" data-content="about"><a href="#" class="nav-item"> About </a></li>
+          <li class="hamburger-li" data-content="articles"><a href="#" class="nav-item"> Projects </a></li>
           <li class="hamburger-li"><a href="#" class="nav-item"> Contact </a></li>
         </ul>
       </div>
     </div>
 
     <main>
-      <section id="articles">
+      <section id="articles" class="page-content">
         <article class="template">
           <h1></h1>
           <a href="" class="project-link"></a>
@@ -30,6 +30,12 @@
           <section class="article-body"></section>
           <div class="float-clear"></div>
         </article>
+      </section>
+
+      <section id="about" class="page-content">
+        <h1> Who is James Moon? </h1>
+        <img src="images/self.jpg" class="self-image"></img>
+        <p> My name is James Moon and this is the start of a portfolio project to showcase some of the skills I've picked up during my journey with Code Fellows. As time goes on more and more content/features will be filled to complete this page. </p>
       </section>
     </main>
 

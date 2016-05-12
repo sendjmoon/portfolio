@@ -1,20 +1,5 @@
-body {
-  background-color: white;
-  color: black;
-  font-family: verdana;
-  width: 90%;
-  margin: 0 auto;
-}
-
-a {
-  margin: 0 auto;
-  text-decoration: none;
-  color: salmon;
-}
-
-a:visited {
-  margin: 0 auto;
-  color: salmon;
+.float-clear {
+  clear: both;
 }
 
 .main-nav {
@@ -31,7 +16,7 @@ a:visited {
   z-index: 2;
   top: 0;
   right: 0;
-  background-image: url('images/blue-hamburger-icon.png');
+  background-image: url('../images/blue-hamburger-icon.png');
   background-size: contain;
   width: 50px;
   height: 50px;
@@ -69,16 +54,16 @@ a:visited {
 }
 
 #articles {
-  align-items: center;
+  text-align: center;
 }
 
 .template {
+  display: none;
   text-align: center;
-  display: block;
   margin: 0 auto;
 }
 
-.template img {
+.article-image img {
   float: none;
   width: 35%;
   min-width: 350px;
@@ -89,7 +74,6 @@ a:visited {
 .article-body p {
   text-align: left;
 }
-
 
 @media (min-width: 640px) {
   .hamburger-icon {
@@ -107,7 +91,7 @@ a:visited {
     width: 33%;
     padding: 10px;
   }
-  .template img {
+  .article-image img {
     float: left;
   }
 }

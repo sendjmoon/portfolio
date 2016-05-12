@@ -1,18 +1,4 @@
-$(document).ready(function() {
-  $('.hamburger-icon').click(function() {
-    $('.hamburger-menu').toggleClass('expand');
-  });
-});
-
 var appendProjects = [];
-
-var allProjects = [{
-  title: 'About Me Project',
-  projectUrl: 'https://github.com/sendjmoon/about-me',
-  publishedOn: 'April 18, 2016',
-  imageUrl: '<img src="images/stormtrooper-hd-bg.jpg"></img>',
-  body: '<p> Lucas ipsum dolor sit amet carnor tib fode nautolan bail obi-wan darpa bothawui abyssin skywalker. Nute rendar antilles arvel katarn saleucami. Lepi kel orus karrde ansionian. Shistavanen bossk vader quarren veila gwurran dunwell jax. Wol jarael gran r5-d4 anx calrissian. Lahara jamillia mace nar r2-d2 boba senesca. Terrik asajj gank carlist keshiri oola taun skywalker derlin. Bria whiphid amedda kit. Wessell tierce gen\'dai chewbacca rex xappyh leia offee zev. Ahsoka wicket panaka nautolan nute oswaft jax c-3p0. </p>'
-}];
 
 function Project(obj) {
   this.title = obj.title;
@@ -32,6 +18,8 @@ Project.prototype.toHtml = function() {
   $newProject.find('.article-image').html(this.imageUrl);
   $newProject.find('.article-body').html(this.body);
 
+  $newProject.removeClass('template');
+  $newProject.addClass('project-article');
   return $newProject;
 };
 

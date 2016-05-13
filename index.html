@@ -7,6 +7,16 @@
     <link rel="stylesheet" type="text/css" href="styles/base.css">
     <link rel="stylesheet" type="text/css" href="styles/layout.css">
     <link rel="stylesheet" type="text/css" href="styles/modules.css">
+    <script id="article-template" type="text/x-handlebars-template">
+      <!-- <article class="template"> -->
+        <h1>{{title}}</h1>
+        <a href="{{projectUrl}}" class="project-link">Go to Project</a>
+        <p class="publish-date">{{publishedOn}}</p>
+        <div class="article-image">{{{imageUrl}}}</div>
+        <section class="article-body">{{{body}}}</section>
+        <div class="float-clear"></div>
+      <!-- </article> -->
+    </script>
   </head>
 
   <body>
@@ -23,14 +33,14 @@
 
     <main>
       <section id="articles" class="page-content">
-        <article class="template">
+        <!-- <article class="template">
           <h1></h1>
           <a href="" class="project-link"></a>
           <p class="publish-date"></p>
           <div class="article-image"></div>
           <section class="article-body"></section>
           <div class="float-clear"></div>
-        </article>
+        </article> -->
       </section>
 
       <section id="about" class="page-content">
@@ -42,6 +52,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
     <script type="text/javascript" src="scripts/projectsData.js"></script>
     <script type="text/javascript" src="scripts/projectsView.js"></script>
     <script type="text/javascript" src="scripts/projects.js"></script>

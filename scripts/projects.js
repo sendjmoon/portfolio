@@ -9,18 +9,20 @@ function Project(obj) {
 }
 
 Project.prototype.toHtml = function() {
-  var $newProject = $('article.template').clone();
-
-  $newProject.find('h1').html(this.title);
-  $newProject.find('.project-link').attr('href', this.projectUrl);
-  $newProject.find('.project-link').text('Click me to view the Project!');
-  $newProject.find('.publish-date').html(this.publishedOn);
-  $newProject.find('.article-image').html(this.imageUrl);
-  $newProject.find('.article-body').html(this.body);
-
-  $newProject.removeClass('template');
-  $newProject.addClass('project-article');
-  return $newProject;
+  var $source = $('#article-template').html();
+  var template = Handlebars.compile($source);
+  // var $newProject = $('article.template').clone();
+  //
+  // $newProject.find('h1').html(this.title);
+  // $newProject.find('.project-link').attr('href', this.projectUrl);
+  // $newProject.find('.project-link').text('Click me to view the Project!');
+  // $newProject.find('.publish-date').html(this.publishedOn);
+  // $newProject.find('.article-image').html(this.imageUrl);
+  // $newProject.find('.article-body').html(this.body);
+  //
+  // $newProject.removeClass('template');
+  // $newProject.addClass('project-article');
+  return template(this);
 };
 
 //followed same code provided from pair programming in today's lab

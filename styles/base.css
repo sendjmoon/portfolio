@@ -1,6 +1,6 @@
 body {
-  background-color: gray;
-  color: black;
+  background-color: rgb(134, 160, 177);
+  color: rgb(240, 240, 240);
   font-family: verdana;
   width: 100%;
 }
@@ -16,12 +16,12 @@ main {
 a {
   margin: 0 auto;
   text-decoration: none;
-  color: salmon;
+  color: rgb(206, 219, 46);
   opacity: 1.0;
 }
 
 a:visited {
   margin: 0 auto;
-  color: salmon;
+  color: rgb(206, 219, 46);
   opacity: 1.0;
 }

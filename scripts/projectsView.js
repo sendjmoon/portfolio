@@ -1,6 +1,9 @@
 var projectsView = {};
 
 projectsView.handleMainNav = function() {
+  $('.main-nav').on('hover', '.hamburger-li', function() {
+    $('.display-link').append('p').text('test');
+  });
   $('.main-nav').on('click', '.hamburger-li', function(e) {
     e.preventDefault();
     $('.page-content').hide();

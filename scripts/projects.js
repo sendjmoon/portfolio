@@ -31,5 +31,5 @@ allProjects.forEach(function(obj) {
 });
 
 appendProjects.forEach(function(obj) {
-  $('#articles').append(obj.toHtml());
+  $('#projects').append(obj.toHtml());
 });

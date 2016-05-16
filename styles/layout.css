@@ -16,6 +16,10 @@
   margin-left: 20px;
 }
 
+.display-link {
+  display: none;
+}
+
 .hamburger-menu {
 display: none;
 }

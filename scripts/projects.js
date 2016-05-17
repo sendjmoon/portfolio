@@ -1,12 +1,17 @@
-var appendProjects = [];
-
-function Project(obj) {
-  this.title = obj.title;
-  this.publishedOn = obj.publishedOn;
-  this.imageUrl = obj.imageUrl;
-  this.projectUrl = obj.projectUrl;
-  this.body = obj.body;
+function Project (obj) {
+  for (properties in obj) {
+    this[properties] = obj[properties];
+  }
 }
+// function Project(obj) {
+//   this.title = obj.title;
+//   this.publishedOn = obj.publishedOn;
+//   this.imageUrl = obj.imageUrl;
+//   this.projectUrl = obj.projectUrl;
+//   this.body = obj.body;
+// }
+
+Project.all = [];
 
 Project.prototype.toHtml = function() {
   var $source = $('#article-template').html();
@@ -25,11 +30,28 @@ Project.prototype.toHtml = function() {
   return template(this);
 };
 
-//followed same code provided from pair programming in today's lab
-allProjects.forEach(function(obj) {
-  appendProjects.push(new Project(obj));
-});
+Project.populateAll = function (dataPassedIn) {
+  dataPassedIn.forEach(function(obj) {
+    Project.all.push(new Project(obj));
+  });
+  // appendProjects.forEach(function(obj) {
+  //   $('#projects').append(obj.toHtml());
+  // });
+};
 
-appendProjects.forEach(function(obj) {
-  $('#projects').append(obj.toHtml());
-});
+Project.getAll = function() {
+  if (localStorage.localData) {
+    console.log('localStorage exists');
+    var localData = localStorage.getItem('localData');
+    Project.populateAll(JSON.parse(localData));
+    projectsView.initProjectContent();
+  //add code here
+  } else {
+    $.getJSON('data/projectsList.json', function(data) {
+      console.log(data);
+      Project.populateAll(data);
+      localStorage.setItem('localData', JSON.stringify(Project.all));
+      projectsView.initProjectContent();
+    });
+  };
+};

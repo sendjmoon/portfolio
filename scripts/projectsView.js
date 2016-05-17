@@ -21,6 +21,12 @@ projectsView.handleMainNav = function() {
   $('.main-nav .hamburger-li:first').click();
 };
 
+projectsView.initProjectContent = function() {
+  Project.all.forEach(function (data) {
+    $('#projects').append(data.toHtml());
+  });
+};
+
 //when < 640px: menu shows up when hamburger menu is clicked
 $(document).ready(function() {
   projectsView.handleMainNav();

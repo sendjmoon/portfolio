@@ -20,6 +20,10 @@
   display: none;
 }
 
+.show-link {
+  display: none;
+}
+
 .hamburger-menu {
 display: none;
 }

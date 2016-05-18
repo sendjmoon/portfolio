@@ -3,6 +3,7 @@
     "title": "About Me Project",
     "projectUrl": "https://github.com/sendjmoon/about-me",
     "publishedOn": "April 18, 2016",
+    "course": "Code 201 - Personal Project",
     "imageUrl": "<img src=\"images/stormtrooper-hd-bg.jpg\"></img>",
     "body": "<p> Lucas ipsum dolor sit amet carnor tib fode nautolan bail obi-wan darpa bothawui abyssin skywalker. Nute rendar antilles arvel katarn saleucami. Lepi kel orus karrde ansionian. Shistavanen bossk vader quarren veila gwurran dunwell jax. Wol jarael gran r5-d4 anx calrissian. Lahara jamillia mace nar r2-d2 boba senesca. Terrik asajj gank carlist keshiri oola taun skywalker derlin. Bria whiphid amedda kit. Wessell tierce gen'dai chewbacca rex xappyh leia offee zev. Ahsoka wicket panaka nautolan nute oswaft jax c-3p0. </p>"
   },
@@ -10,6 +11,7 @@
     "title": "Cookie Stand Project",
     "projectUrl": "https://github.com/sendjmoon/cookie-stand-2",
     "publishedOn": "April 22, 2016",
+    "course": "Code 201 - Personal Project",
     "imageUrl": "<img src=\"images/darth-vader-snow.jpg\"></img>",
     "body": "<p> Did you find any droids? No, sir. If there were any on board, they must also have jettisoned. Send a scanning crew on board. I want every part of this ship checked. Yes, sir. I sense something...a presence I haven't felt since... Get me a scanning crew in here on the double. I want every part of this ship checked! Boy, it's lucky you had these compartments. I use them for smuggling. I never thought I'd be smuggling myself in them. This is ridiculous. Even if I could take off, I'd never get past the tractor beam. </p>"
   },
@@ -17,6 +19,7 @@
     "title": "Chocolate Pizza",
     "projectUrl": "https://github.com/sendjmoon/chocolate-pizza",
     "publishedOn": "April 22, 2016",
+    "course": "Code 201 - Personal Project",
     "imageUrl": "<img src=\"images/star-wars-clone-wars.jpg\"></img>",
     "body": "<p> What are you doing hiding there? It wasn't my fault, sir. Please don't deactivate me. I told him not to go, but he's faulty, malfunctioning, kept babbling on about his mission. Oh, no! That R2 unit has always been a problem. These astro-droids are getting quite out of hand. Even I can't understand their logic at times. How could I be so stupid? He's nowhere in sight. Blast it! Pardon me, sir, but couldn't we go after him? It's too dangerous with all the Sandpeople around. We'll have to wait until morning. Luke, I'm shutting the power down for the night. All right, I'll be there in a few minutes. Boy, am I gonna get it. You know that little droid is going to cause me a lot of trouble. Oh, he excels at that, sir. </p>"
   },
@@ -24,7 +27,16 @@
     "title": "Bus Mall",
     "projectUrl": "https://github.com/sendjmoon/bus-mall",
     "publishedOn": "April 26, 2016",
+    "course": "Code 201 - Personal Project",
     "imageUrl": "<img src=\"images/storm-trooper-evo.jpg\"></img>",
     "body": "<p> Open up in there! Oh, no! There isn't any other way out. I can't hold them off forever! Now what? This is some rescue. When you came in here, didn't you have a plan for getting out? He's the brains, sweetheart. Well, I didn't... What the hell are you doing? Somebody has to save our skins. Into the garbage chute, wise guy. Get in there you big furry oaf! I don't care what you smell! Get in there and don't worry about it. Wonderful girl! Either I'm going to kill her or I'm beginning to like her. Get in there! </p>"
+  },
+  {
+    "title": "BeerFellows",
+    "projectUrl": "https://github.com/traceyr/BeerFellows",
+    "publishedOn": "May 2, 2016",
+    "course": "Code 201 - Final Project",
+    "imageUrl": "<img src=\"images/green-bg.jpg\"></img>",
+    "body": "<p> HERE'S BEERFELLOWS!!!!!!!!!!!!!!!!!!!!!!! </p>"
   }
 ]

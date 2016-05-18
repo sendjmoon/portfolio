@@ -13,20 +13,20 @@
     return template(this);
   };
 
-  Project.getAll = function(next) {
-    $.getJSON('data/projectsList.json', function(responseData) {
-      Project.loadAll(responseData);
-      localStorage.localData = JSON.stringify(responseData);
-      next();
-    });
-  };
-
   Project.loadAll = function (dataPassedIn) {
     // dataPassedIn.forEach(function(obj) {
     //   Project.all.push(new Project(obj));
     // });
     Project.all = dataPassedIn.map(function(obj) {
       return new Project(obj);
+    });
+  };
+
+  Project.getAll = function(next) {
+    $.getJSON('data/projectsList.json', function(responseData) {
+      Project.loadAll(responseData);
+      localStorage.localData = JSON.stringify(responseData);
+      next();
     });
   };
 

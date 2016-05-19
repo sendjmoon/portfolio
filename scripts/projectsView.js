@@ -22,6 +22,7 @@
     $('.main-nav .hamburger-li:first').click();
   };
 
+  //appends project data to the DOM
   projectsView.initProjectContent = function() {
     Project.all.forEach(function (data) {
       $('#projects').append(data.toHtml($('#article-template')));

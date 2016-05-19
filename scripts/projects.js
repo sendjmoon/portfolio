@@ -1,27 +1,31 @@
+// IIFE!!!!!!!!
 (function(module) {
+
+  //constructor to build Project objects
   function Project (obj) {
     for (property in obj) {
       this[property] = obj[property];
     }
   };
 
+  //empty array to hold Project objects that will append to the DOM
   Project.all = [];
 
+  //function to use handlebars for the template
   Project.prototype.toHtml = function() {
     var $source = $('#article-template').html();
     var template = Handlebars.compile($source);
     return template(this);
   };
 
+  //function to populate the project array
   Project.loadAll = function (dataPassedIn) {
-    // dataPassedIn.forEach(function(obj) {
-    //   Project.all.push(new Project(obj));
-    // });
     Project.all = dataPassedIn.map(function(obj) {
       return new Project(obj);
     });
   };
 
+  //function to get data from .json file, stores into localStorage
   Project.getAll = function(next) {
     $.getJSON('data/projectsList.json', function(responseData) {
       Project.loadAll(responseData);
@@ -30,6 +34,7 @@
     });
   };
 
+  //function to get and set data based of conditions, also accepts function as an argument
   Project.fetchAll = function(next) {
     if (localStorage.localData) {
       $.ajax({
@@ -51,20 +56,9 @@
     } else {
       Project.getAll(next);
     }
-    //   console.log('localStorage exists');
-    //   var localData = localStorage.getItem('localData');
-    //   Project.loadAll(JSON.parse(localData));
-    //   projectsView.initProjectContent();
-    // } else {
-    //   $.getJSON('data/projectsList.json', function(data) {
-    //     console.log(data);
-    //     Project.loadAll(data);
-    //     localStorage.setItem('localData', JSON.stringify(Project.all));
-    //     projectsView.initProjectContent();
-    //   });
-    // };
   };
 
+  //returns an array of what courses are associated with the projects. displays unique, no repeats
   Project.allCourses = function() {
     return Project.all.map(function(obj) {
       return obj.course;
@@ -77,5 +71,6 @@
     }, []);
   };
 
+  //Project is now a property of module to where any method of Project can be used
   module.Project = Project;
 })(window);

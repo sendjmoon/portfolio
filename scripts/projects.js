@@ -12,8 +12,8 @@
   Project.all = [];
 
   //function to use handlebars for the template
-  Project.prototype.toHtml = function() {
-    var $source = $('#article-template').html();
+  Project.prototype.toHtml = function(scriptTemplateId) {
+    var $source = $(scriptTemplateId).html();
     var template = Handlebars.compile($source);
     return template(this);
   };

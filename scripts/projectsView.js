@@ -18,6 +18,7 @@
       console.log($clickEvent);
       $('[id="' + $clickEvent.attr('data-content') + '"]').show();
       $('.hamburger-menu').removeClass('expand');
+      projectsView.handleTeasers();
     });
     $('.main-nav .hamburger-li:first').click();
   };
@@ -30,6 +31,19 @@
       } else {
         $('.project-container').fadeIn('fast');
       }
+      projectsView.handleTeasers();
+    });
+  };
+
+  projectsView.handleTeasers = function() {
+    $('.read-more').show();
+    console.log($('.article-body'));
+    $('.article-body *:nth-of-type(n+2)').hide();
+    $('article').on('click', 'a:eq(1)', function(e){
+      e.preventDefault();
+      console.log('project container click event ran');
+      $($(this).parent().children('.article-body')).children().fadeIn('fast');
+      $(this).hide();
     });
   };
 
@@ -41,6 +55,7 @@
         $('#course-filter').append(data.toHtml($('#filter-template')));
       };
     });
+    projectsView.handleTeasers();
   };
 
 

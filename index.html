@@ -8,14 +8,15 @@
     <link rel="stylesheet" type="text/css" href="styles/layout.css">
     <link rel="stylesheet" type="text/css" href="styles/modules.css">
     <script id="article-template" type="text/x-handlebars-template">
-      <section class="project-container" data-category="{{course}}">
+      <article class="project-container" data-category="{{course}}">
         <h1>{{title}}</h1>
         <a href="{{projectUrl}}" class="project-link">Go to Project</a>
         <p class="publish-date">{{publishedOn}}</p>
         <div class="article-image">{{{imageUrl}}}</div>
         <section class="article-body">{{{body}}}</section>
+        <a href="#" class="read-more">More &rarr;</a>
         <div class="float-clear"></div>
-      </section>
+      </article>
     </script>
     <script id="filter-template" type="text/x-handlebars-template">
       <option value="{{course}}">{{course}}</option>

@@ -13,7 +13,7 @@
 
   //function to use handlebars for the template
   Project.prototype.toHtml = function(scriptTemplateId) {
-    var $source = $(scriptTemplateId).html();
+    var $source = $(scriptTemplateId).text();
     var template = Handlebars.compile($source);
     return template(this);
   };

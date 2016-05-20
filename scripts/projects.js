@@ -25,6 +25,7 @@
 
   //function to populate the project array
   Project.loadAll = function (dataPassedIn) {
+    //instantiates new article objects into the Project.all array
     Project.all = dataPassedIn.map(function(obj) {
       return new Project(obj);
     });
@@ -32,9 +33,13 @@
 
   //function to get data from .json file, stores into localStorage
   Project.getAll = function(next) {
+    //gets data from the json file
     $.getJSON('data/projectsList.json', function(responseData) {
+      //throws the data from the json file into the loadAll function
       Project.loadAll(responseData);
+      //stores the data as a string in localStorage under the variable localData
       localStorage.localData = JSON.stringify(responseData);
+      //calls the function that is passed through
       next();
     });
   };
@@ -76,7 +81,7 @@
       return obj.course;
     //.reduce used to create an array of results. pass acc as the array and cur as the element in the array
     }).reduce(function(acc, cur) {
-
+      //if the value of the iterated element returns -1 it will push that element into the returned array
       if (acc.indexOf(cur) === -1) {
         console.log(cur);
         acc.push(cur);

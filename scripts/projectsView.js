@@ -1,4 +1,4 @@
-//IIFE
+//IFFE
 (function(module) {
   //blank object
   var projectsView = {};

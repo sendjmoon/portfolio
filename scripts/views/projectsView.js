@@ -1,6 +1,6 @@
 //IFFE
 (function(module) {
-  
+
   var projectsView = {};
 
   //when < 640px: selected nav item will display it's data content
@@ -17,7 +17,6 @@
       e.preventDefault();
       $('.page-content').hide();
       var $clickEvent = $(this);
-      console.log($clickEvent);
       $('[id="' + $clickEvent.attr('data-content') + '"]').show();
       $('.hamburger-menu').removeClass('expand');
       projectsView.handleTeasers();
@@ -40,11 +39,9 @@
 
   projectsView.handleTeasers = function() {
     $('.read-more').show();
-    console.log($('.article-body'));
     $('.article-body *:nth-of-type(n+2)').hide();
     $('article').on('click', 'a:eq(1)', function(e){
       e.preventDefault();
-      console.log('project container click event ran');
       $($(this).parent().children('.article-body')).children().fadeIn('fast');
       $(this).hide();
     });

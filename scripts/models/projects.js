@@ -18,6 +18,35 @@
     return template(this);
   };
 
+  Project.createTable = function(callback) {
+    webDB.execute(
+      'CREATE TABLE IF NOT EXISTS projects (' +
+        'id INTEGER PRIMARY KEY, ' +
+        'title VARCHAR(255) NOT NULL, ' +
+        'projectUrl VARCHAR(255), ' +
+        'publishedOn VARCHAR(255) NOT NULL, ' +
+        'course VARCHAR(255) NOT NULL, ' +
+        'imageUrl VARCHAR(255), ' +
+        'body TEXT NOT NULL);',
+      function() {
+        console.log('Successfully setup the Projects table.');
+        if (callback) callback();
+      }
+    );
+  };
+
+  Project.prototype.insertRecord = function(callback) {
+    webDB.execute(
+      [
+        {
+          'sql': 'INSERT INTO projects (title, projectUrl, publishedOn, course, imageUrl, body) VALUES (?, ?, ?, ?, ?, ?);',
+          'data': [this.title, this.projectUrl, this.publishedOn, this.course, this.imageUrl, this.body],
+        }
+      ],
+      callback
+    );
+  };
+
   //function to populate the project array
   Project.loadAll = function (dataPassedIn) {
     Project.all = dataPassedIn.map(function(obj) {
@@ -25,37 +54,43 @@
     });
   };
 
-  //function to get data from .json file, stores into localStorage
-  Project.getAll = function(next) {
-    $.getJSON('data/projectsList.json', function(responseData) {
-      Project.loadAll(responseData);
-      localStorage.localData = JSON.stringify(responseData);
-      next();
-    });
-  };
-
   //function to get and set data based of conditions, also accepts function as an argument
   Project.fetchAll = function(next) {
-    if (localStorage.localData) {
-      $.ajax({
-        type: 'HEAD',
-        url: 'data/projectsList.json',
-        success: function(data, message, xhr) {
-          var eTag = xhr.getResponseHeader('eTag');
-          if (eTag !== localStorage.eTag || !localStorage.eTag) {
-            console.log('before' + eTag);
-            eTag = localStorage.eTag;
-            console.log('after' + eTag);
-            Project.getAll(next);
-          } else {
-            Project.loadAll(JSON.parse(localStorage.localData));
+    webDB.execute('SELECT * FROM projects ORDER BY publishedOn DESC', function(rows) {
+      if(rows.length) {
+        Project.loadAll(rows);
+        next();
+      } else {
+        $.getJSON('/data/projectsList.json', function(rawData) {
+          rawData.forEach(function(item) {
+            var project = new Project(item);
+            project.insertRecord();
+          });
+          webDB.execute('SELECT * FROM projects', function(rows) {
+            Project.loadAll(rows);
             next();
-          }
-        }
-      });
-    } else {
-      Project.getAll(next);
-    }
+          });
+        });
+      };
+    });
+    // if (localStorage.localData) {
+    //   $.ajax({
+    //     type: 'HEAD',
+    //     url: 'data/projectsList.json',
+    //     success: function(data, message, xhr) {
+    //       var eTag = xhr.getResponseHeader('eTag');
+    //       if (eTag !== localStorage.eTag || !localStorage.eTag) {
+    //         eTag = localStorage.eTag;
+    //         Project.getAll(next);
+    //       } else {
+    //         Project.loadAll(JSON.parse(localStorage.localData));
+    //         next();
+    //       }
+    //     }
+    //   });
+    // } else {
+    //   Project.getAll(next);
+    // }
   };
 
   //returns an array of what courses are associated with the projects. displays unique, no repeats
@@ -64,7 +99,6 @@
       return obj.course;
     }).reduce(function(acc, cur) {
       if (acc.indexOf(cur) === -1) {
-        console.log(cur);
         acc.push(cur);
       }
       return acc;

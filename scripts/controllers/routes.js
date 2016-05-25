@@ -1,0 +1,2 @@
+page('/', projectsController.index);
+page();

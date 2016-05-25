@@ -9,14 +9,8 @@
     <link rel="stylesheet" type="text/css" href="styles/modules.css">
     <!-- uses handlebars to fill a template created to append data to the DOM -->
     <script id="article-template" type="text/x-handlebars-template">
-<<<<<<< HEAD
       <article class="project-container" data-category="{{course}}">
-        <h1>{{title}}</h1>
-        <a href="{{projectUrl}}" class="project-link">Go to Project</a>
-=======
         <h1><a href="{{projectUrl}}" class="project-link">{{title}}</h1></a>
-        <!-- <a href="{{projectUrl}}" class="project-link">Go to Project</a> -->
->>>>>>> d30cc6f5cf39a4228bc3b943b03889bca4d62b30
         <p class="publish-date">{{publishedOn}}</p>
         <div class="article-image">{{{imageUrl}}}</div>
         <section class="article-body">{{{body}}}</section>
@@ -36,8 +30,8 @@
       <div class="display-link"></div>
       <div class="hamburger-menu">
         <ul class="hamburger-ul">
-          <li class="hamburger-li" data-content="projects"><a href="#" class="icon-projects"><span class="nav-text"> projects </span></a></li>
-          <li class="hamburger-li" data-content="about"><a href="#" class="icon-about"><span class="nav-text"> about </span></a></li>
+          <li class="hamburger-li" data-content="projects"><a href="/" class="icon-projects"><span class="nav-text"> projects </span></a></li>
+          <li class="hamburger-li" data-content="about"><a href="/about" class="icon-about"><span class="nav-text"> about </span></a></li>
           <li class="hamburger-li" data-content="facebook"><a href="#" class="icon-facebook"><span class="nav-text"> facebook </span></a></li>
           <li class="hamburger-li" data-content="linkedin"><a href="#" class="icon-linkedin"><span class="nav-text"> linkedIn </span></a></li>
           <li class="hamburger-li" data-content="contact"><a href="#" class="icon-mail"><span class="nav-text"> contact </span></a></li>
@@ -48,7 +42,7 @@
     <main>
       <section id="projects" class="page-content">
         <select id="course-filter">
-          <option value="">-- Choose a Course --</option>
+          <option value=""> All Projects </option>
         </select>
       </section>
 
@@ -59,13 +53,21 @@
       </section>
     </main>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="/vendor/scripts/jquery-2.1.4.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/handlebarsjs/4.0.5/handlebars.min.js"></script>
-    <script type="text/javascript" src="scripts/projectsView.js"></script>
-    <script type="text/javascript" src="scripts/projects.js"></script>
-    <script>
+    <script src="/vendor/scripts/handlebars.js"></script>
+    <script src="/vendor/scripts/marked.js"></script>
+    <script src="/vendor/scripts/html5sql.js"></script>
+    <script src="/vendor/scripts/webdb.js"></script>
+    <script src="/vendor/scripts/page.js"></script>
+
+    <script src="/scripts/models/projects.js"></script>
+    <script src="/scripts/views/projectsView.js"></script>
+    <script src="/scripts/controllers/projectsController.js"></script>
+    <script src="/scripts/controllers/aboutController.js"></script>
+    <script src="/scripts/controllers/routes.js"></script>
+    <!-- <script>
       Project.fetchAll(projectsView.initProjectContent);
-    </script>
+    </script> -->
   </body>
 </html>

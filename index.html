@@ -7,13 +7,25 @@
     <link rel="stylesheet" type="text/css" href="styles/base.css">
     <link rel="stylesheet" type="text/css" href="styles/layout.css">
     <link rel="stylesheet" type="text/css" href="styles/modules.css">
+    <!-- uses handlebars to fill a template created to append data to the DOM -->
     <script id="article-template" type="text/x-handlebars-template">
+<<<<<<< HEAD
+      <article class="project-container" data-category="{{course}}">
         <h1>{{title}}</h1>
         <a href="{{projectUrl}}" class="project-link">Go to Project</a>
+=======
+        <h1><a href="{{projectUrl}}" class="project-link">{{title}}</h1></a>
+        <!-- <a href="{{projectUrl}}" class="project-link">Go to Project</a> -->
+>>>>>>> d30cc6f5cf39a4228bc3b943b03889bca4d62b30
         <p class="publish-date">{{publishedOn}}</p>
         <div class="article-image">{{{imageUrl}}}</div>
         <section class="article-body">{{{body}}}</section>
+        <a href="#" class="read-more">More &rarr;</a>
         <div class="float-clear"></div>
+      </article>
+    </script>
+    <script id="filter-template" type="text/x-handlebars-template">
+      <option value="{{course}}">{{course}}</option>
     </script>
   </head>
 
@@ -34,7 +46,11 @@
     </div>
 
     <main>
-      <section id="projects" class="page-content"></section>
+      <section id="projects" class="page-content">
+        <select id="course-filter">
+          <option value="">-- Choose a Course --</option>
+        </select>
+      </section>
 
       <section id="about" class="page-content">
         <h1> Who is James Moon? </h1>
@@ -49,7 +65,7 @@
     <script type="text/javascript" src="scripts/views/projectsView.js"></script>
     <script type="text/javascript" src="scripts/models/projects.js"></script>
     <script>
-      Project.getAll();
+      Project.fetchAll(projectsView.initProjectContent);
     </script>
   </body>
 </html>

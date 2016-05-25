@@ -23,6 +23,7 @@
     $('.main-nav .hamburger-li:first').click();
   };
 
+  //handles course filter
   projectsView.handleCourseFilter = function() {
     $('#course-filter').on('change', function() {
       if($(this).val()) {

@@ -4,7 +4,10 @@
   Project.createTable();
 
   projectsController.index = function() {
-    Project.fetchAll(projectsView.initProjectContent);
+    if ($('#projects article').length === 0) {
+      Project.fetchAll(projectsView.initProjectContent);
+    };
+    $('#projects').show().siblings().hide();
   };
 
   module.projectsController = projectsController;

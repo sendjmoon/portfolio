@@ -10,7 +10,7 @@
     <!-- uses handlebars to fill a template created to append data to the DOM -->
     <script id="article-template" type="text/x-handlebars-template">
       <article class="project-container" data-category="{{course}}">
-        <h1><a href="{{projectUrl}}" class="project-link">{{title}}</h1></a>
+        <h1><a href="{{projectUrl}}" class="project-link" target="_blank">{{title}}</h1></a>
         <p class="publish-date">{{publishedOn}}</p>
         <div class="article-image">{{{imageUrl}}}</div>
         <section class="article-body">{{{body}}}</section>
@@ -18,6 +18,28 @@
         <div class="float-clear"></div>
       </article>
     </script>
+
+    <script id="repo-template" type="text/x-handlebars-template">
+      <li>
+        <a href="{{html_url}}" target="_blank"><h3>{{name}}</h3></a>
+        {{#if description}}
+          <p>Description: {{description}}</p>
+        {{/if}}
+        {{#if language}}
+          <p>Language: {{language}}</p>
+        {{/if}}
+        {{#if created_at}}
+          <p>Created: {{created_at}}</p>
+        {{/if}}
+        {{#if updated_at}}
+          <p>Last updated: {{updated_at}}</p>
+        {{/if}}
+        {{#if watchers_count}}
+          <p>{{watchers_count}} watching this repo</p>
+        {{/if}}
+      </li>
+    </script>
+
     <script id="filter-template" type="text/x-handlebars-template">
       <option value="{{course}}">{{course}}</option>
     </script>
@@ -32,9 +54,9 @@
         <ul class="hamburger-ul">
           <li class="hamburger-li" data-content="projects"><a href="/" class="icon-projects"><span class="nav-text"> projects </span></a></li>
           <li class="hamburger-li" data-content="about"><a href="/about" class="icon-about"><span class="nav-text"> about </span></a></li>
-          <li class="hamburger-li" data-content="facebook"><a href="#" class="icon-facebook"><span class="nav-text"> facebook </span></a></li>
-          <li class="hamburger-li" data-content="linkedin"><a href="#" class="icon-linkedin"><span class="nav-text"> linkedIn </span></a></li>
-          <li class="hamburger-li" data-content="contact"><a href="#" class="icon-mail"><span class="nav-text"> contact </span></a></li>
+          <li class="hamburger-li" data-content="facebook"><a href="http://www.facebook.com" class="icon-facebook" target="_blank"><span class="nav-text"> facebook </span></a></li>
+          <li class="hamburger-li" data-content="linkedin"><a href="http://www.linkedin.com" class="icon-linkedin" target="_blank"><span class="nav-text"> linkedIn </span></a></li>
+          <li class="hamburger-li" data-content="contact"><a href="#" class="icon-mail" target="_blank"><span class="nav-text"> contact </span></a></li>
         </ul>
       </div>
     </div>
@@ -50,6 +72,8 @@
         <h1> Who is James Moon? </h1>
         <img src="images/self.jpg" class="self-image"></img>
         <p> My name is James Moon and this is the start of a portfolio project to showcase some of the skills I've picked up during my journey with Code Fellows. As time goes on more and more content/features will be filled to complete this page. </p>
+        <div class="float-clear">
+        <ul></ul>
       </section>
     </main>
 
@@ -61,13 +85,17 @@
     <script src="/vendor/scripts/webdb.js"></script>
     <script src="/vendor/scripts/page.js"></script>
 
+    <script src="githubtoken.js"></script>
+
     <script src="/scripts/models/projects.js"></script>
+    <script src="/scripts/models/repo.js"></script>
+
     <script src="/scripts/views/projectsView.js"></script>
+    <script src="/scripts/views/repoView.js"></script>
+
     <script src="/scripts/controllers/projectsController.js"></script>
     <script src="/scripts/controllers/aboutController.js"></script>
+
     <script src="/scripts/controllers/routes.js"></script>
-    <!-- <script>
-      Project.fetchAll(projectsView.initProjectContent);
-    </script> -->
   </body>
 </html>
